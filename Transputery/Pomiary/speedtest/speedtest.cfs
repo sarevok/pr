@@ -1,0 +1,51 @@
+processor (type = "T805", memory = 4M ) TR_0_;
+processor (type = "T805", memory = 4M ) TR_1_;
+processor (type = "T805", memory = 4M ) TR_3_;
+processor (type = "T805", memory = 4M ) TR_4_;
+
+connect host to TR_0_.link[1];
+connect TR_0_.link[2] to TR_1_.link[1];
+connect TR_0_.link[3] to TR_3_.link[0];
+connect TR_1_.link[3] to TR_4_.link[0];
+connect TR_3_.link[2] to TR_4_.link[1];
+
+process (stacksize = 100K, heapsize = 100K, priority = HIGH , interface (input FROM_HOST, output TO_HOST, output KANAL2, input KANAL3)) PR_WE_WY;
+process (stacksize = 100K, heapsize = 100K, priority = HIGH , interface (output KANAL2, input KANAL3, output KANAL4, input KANAL5, output KANAL6, input KANAL7, int procNr)) PR_1_;
+process (stacksize = 100K, heapsize = 100K, priority = HIGH , interface (output KANAL4, input KANAL5, output KANAL6, input KANAL7, int procNr)) PR_2_;
+process (stacksize = 20K, heapsize = 100K, priority = LOW , interface (output KANAL0, input KANAL1, output KANAL2, input KANAL3, int procNr)) PR_3_;
+process (stacksize = 20K, heapsize = 100K, priority = LOW , interface (output KANAL0, input KANAL1, output KANAL6, input KANAL7, int procNr)) PR_4_;
+
+input from_host; 
+output to_host; 
+place from_host on host; 
+place to_host on host; 
+
+place PR_WE_WY on TR_0_;
+place PR_1_ on TR_0_;
+place PR_2_ on TR_1_;
+place PR_3_ on TR_3_;
+place PR_4_ on TR_4_;
+
+use "pr_we_wy.c9x" for PR_WE_WY;
+use "pr_1_.c9x" for PR_1_;
+use "pr_2_.c9x" for PR_2_;
+use "pr_3_.c9x" for PR_3_;
+use "pr_4_.c9x" for PR_4_;
+
+PR_1_( procNr = 1);
+PR_2_( procNr = 2);
+PR_3_( procNr = 3);
+PR_4_( procNr = 4);
+
+connect PR_WE_WY.FROM_HOST to from_host;
+connect PR_WE_WY.TO_HOST to to_host;
+connect PR_WE_WY.KANAL3 to PR_1_.KANAL6;
+connect PR_1_.KANAL3 to PR_2_.KANAL6;
+connect PR_1_.KANAL5 to PR_3_.KANAL0;
+connect PR_1_.KANAL7 to PR_WE_WY.KANAL2;
+connect PR_2_.KANAL5 to PR_4_.KANAL0;
+connect PR_2_.KANAL7 to PR_1_.KANAL2;
+connect PR_3_.KANAL1 to PR_1_.KANAL4;
+connect PR_3_.KANAL3 to PR_4_.KANAL6;
+connect PR_4_.KANAL1 to PR_2_.KANAL4;
+connect PR_4_.KANAL7 to PR_3_.KANAL2;
