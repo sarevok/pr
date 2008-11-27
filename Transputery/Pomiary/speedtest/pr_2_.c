@@ -25,7 +25,7 @@ int main()
 	procNr     = (int *)      get_param (5);
 
 	for(i=0;i<5000;i++)
-		liczba[i]=(i%100)+1;
+		liczba[i]=25;
 	for(i=10;i<100;i+=10)
 		for(j=0;j<20;j++){
 			for(z=0;z<i;z++)
