@@ -21,18 +21,18 @@ var T >=0;
 
 /* Parameters definitions */
 /* liczba zadañ */
-param v := 1000;
+param v := 9000;
 
 
 /* czas przetwarzania jednostki danych */
-param a1 := 6.09;
-param a2 := 6.09*2;
-param a3 := 6.4*4;
-param a4 := 6.4*8;
+param a1 := 6.6;
+param a2 := 6.6*2;
+param a3 := 6.83*4;
+param a4 := 6.83*8;
 
-param a5 := 6.09*2;
-param a6 := 6.4*4;
-param a7 := 6.4*8;
+param a5 := 6.6*2;
+param a6 := 6.83*4;
+param a7 := 6.83*8;
 
 
 /* setup time'y */
@@ -63,6 +63,6 @@ R2: T >= s1+(l2+l3+l4)*c1 + l2*a2;
 R3: T >= s1+(l2+l3+l4)*c1 + s1+(l3+l4)*c2 + l3*a3;
 R4: T >= s1+(l2+l3+l4)*c1 + s1+(l3+l4)*c2 + s2+(l4)*c2 +l4*a4;
 R5: T >= s1+(l5+l6+l7)*c1 + l5*a5;
-R6: T >= s1+(l5+l6+l7)*c1 + s1+(l5+l6)*c2 + l6*a6;
-R7: T >= s1+(l5+l6+l7)*c1 + s1+(l5+l6)*c2 +  s2+(l6)*c2 + l7*a7;
+R6: T >= s1+(l5+l6+l7)*c1 + s1+(l6+l7)*c2 + l6*a6;
+R7: T >= s1+(l5+l6+l7)*c1 + s1+(l6+l7)*c2 +  s2+(l7)*c2 + l7*a7;
 R8: v = l1+l2+l3+l4+l5+l6+l7;

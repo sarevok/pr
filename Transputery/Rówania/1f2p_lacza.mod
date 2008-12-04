@@ -22,18 +22,18 @@ var T >=0;
 
 /* Parameters definitions */
 /* liczba zadañ */
-param v := 1000;
+param v := 9000;
 
 
 /* czas przetwarzania jednostki danych */
-param a1 := 6.09;
-param a2 := 6.09*2;
-param a3 := 6.4*4;
-param a4 := 6.4*8;
+param a1 := 6.6;
+param a2 := 6.6*2;
+param a3 := 6.83*4;
+param a4 := 6.83*8;
 
-param a5 := 6.09*2;
-param a6 := 6.4*4;
-param a7 := 6.4*8;
+param a5 := 6.6*2;
+param a6 := 6.83*4;
+param a7 := 6.83*8;
 
 
 /* setup time'y */

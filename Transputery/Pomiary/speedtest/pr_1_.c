@@ -9,6 +9,8 @@
 
 int main()
 {
+	Channel*  KANAL0WY;
+	Channel*  KANAL1WE;
 	Channel*  KANAL2WY;
 	Channel*  KANAL3WE;
 	Channel*  KANAL4WY;
@@ -17,37 +19,34 @@ int main()
 	Channel*  KANAL7WE;
 	int*      procNr;
 	int i,j,z, time, time2;
-	int liczba[5000];
-	int x[5000];
-	KANAL2WY   = (Channel *)  get_param (1);
-	KANAL3WE   = (Channel *)  get_param (2);
-	KANAL4WY   = (Channel *)  get_param (3);
-	KANAL5WE   = (Channel *)  get_param (4);
-	KANAL6WY   = (Channel *)  get_param (5);
-	KANAL7WE   = (Channel *)  get_param (6);
-	procNr     = (int *)      get_param (7);
+	int liczba[10000];
+	int x[10000];
+	KANAL0WY   = (Channel *)  get_param (1);
+	KANAL1WE   = (Channel *)  get_param (2);
+	KANAL2WY   = (Channel *)  get_param (3);
+	KANAL3WE   = (Channel *)  get_param (4);
+	KANAL4WY   = (Channel *)  get_param (5);
+	KANAL5WE   = (Channel *)  get_param (6);
+	KANAL6WY   = (Channel *)  get_param (7);
+	KANAL7WE   = (Channel *)  get_param (8);
+	procNr     = (int *)      get_param (9);
 	
-	for(i=0;i<5000;i++)
-		liczba[i]=25;
+	ChanOutInt(KANAL0WY, (int)liczba);
 		
 	for(i=10;i<100;i+=10)
 		for(j=0;j<20;j++){
-			for(z=0;z<i;z++)
-				x[z]=0;
+			ChanInInt(KANAL1WE);
 			time=ProcTime();
-			for(z=0;z<i;z+=1)
-				x[z]=(((4*liczba[z]+12)*liczba[z]+3)*liczba[z]+3)*liczba[z]+7;
+			ChanInInt(KANAL1WE);
 			time2=ProcTime();
 			ChanOutInt(KANAL6WY, time2-time);
 		}
 		
 	for(i=200;i<=5000;i+=200)
 		for(j=0;j<20;j++){
-			for(z=0;z<i;z++)
-				x[z]=0;
+			ChanInInt(KANAL1WE);
 			time=ProcTime();
-			for(z=0;z<i;z+=1)
-				x[z]=(((4*liczba[z]+12)*liczba[z]+3)*liczba[z]+3)*liczba[z]+7;
+			ChanInInt(KANAL1WE);
 			time2=ProcTime();
 			ChanOutInt(KANAL6WY, time2-time);
 		}
