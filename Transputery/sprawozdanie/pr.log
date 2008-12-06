@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2008.11.18)  4 DEC 2008 21:36
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2008.11.4)  6 DEC 2008 04:05
 entering extended mode
  %&-line parsing enabled.
 **pr.tex
@@ -85,10 +85,11 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 (/etc/texmf/tex/latex/config/graphics.cfg
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: dvips.def on input line 90.
+Package graphics Info: Driver file: pdftex.def on input line 90.
 
-(/usr/share/texmf-texlive/tex/latex/graphics/dvips.def
-File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2007/01/08 v0.04d Graphics/color for pdfTeX
+\Gread@gobject=\count87
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
@@ -314,125 +315,183 @@ Now handling font encoding OT4 ...
 )) (./pr.aux)
 \openout1 = `pr.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Try loading font information for OML+plm on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
 
-(/usr/share/texmf-texlive/tex/latex/platex/omlplm.fd
+(/usr/share/texmf/tex/context/base/supp-pdf.tex
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count88
+\scratchdimen=\dimen105
+\scratchbox=\box26
+\nofMPsegments=\count89
+\nofMParguments=\count90
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count91
+\MPscratchDim=\dimen106
+\MPnumerator=\count92
+\everyMPtoPDFconversion=\toks18
+)
+LaTeX Font Info:    Try loading font information for OML+plm on input line 13.
+ (/usr/share/texmf-texlive/tex/latex/platex/omlplm.fd
 File: omlplm.fd 2000/10/09 v1.2 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMS+plsy on input line 12.
+LaTeX Font Info:    Try loading font information for OMS+plsy on input line 13.
 
 
 (/usr/share/texmf-texlive/tex/latex/platex/omsplsy.fd
 File: omsplsy.fd 2000/10/09 v1.2 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMX+plex on input line 12.
+LaTeX Font Info:    Try loading font information for OMX+plex on input line 13.
 
 
 (/usr/share/texmf-texlive/tex/latex/platex/omxplex.fd
 File: omxplex.fd 2000/10/09 v1.2 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <12> on input line 12.
+(Font)              <12> on input line 13.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <8> on input line 12.
+(Font)              <8> on input line 13.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <6> on input line 12.
+(Font)              <6> on input line 13.
  [1
 
-]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 16.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 17.
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 16.
-File: proce.eps Graphic file (type eps)
- <proce.eps>
-File: lacza.eps Graphic file (type eps)
- <lacza.eps>
-[1]
-Overfull \hbox (10.74915pt too wide) in paragraph at lines 39--40
-\OT4/cmr/m/n/10.95 pr¦d-ko±¢ prze-twa-rza-nia po-je-dyn-cze-go za-da-nia dla ba
--da-ne-go sys-te-mu. Uwzgl¦d-
- []
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
 
-[2]
+<proce.png, id=7, 582.175pt x 607.26875pt>
+File: proce.png Graphic file (type png)
+ <use proce.png>
+<lacza.png, id=8, 582.175pt x 607.26875pt>
+File: lacza.png Graphic file (type png)
+ <use lacza.png> [1 <./proce.png>]
+[2 <./lacza.png>]
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <10.95> on input line 52.
+(Font)              <10.95> on input line 53.
  [3] [4]
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 100.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 101.
 
-Overfull \hbox (24.4033pt too wide) in paragraph at lines 119--120
+<wykresy/szeregowe_proc.png, id=29, 602.25pt x 335.2525pt>
+File: wykresy/szeregowe_proc.png Graphic file (type png)
+
+<use wykresy/szeregowe_proc.png>
+Overfull \hbox (24.4033pt too wide) in paragraph at lines 120--125
 []\OT4/cmr/m/n/10.95 Rozwi¡zanie pro-ble-mu pro-gra-mo-wa-nia li-nio-we-go dla 
-te-go wa-rian-tu:(tabelka!!!) 
+te-go wa-rian-tu:(tabelka!!!)
  []
 
-[5]
-Overfull \hbox (24.4033pt too wide) in paragraph at lines 136--137
-[]\OT4/cmr/m/n/10.95 Rozwi¡zanie pro-ble-mu pro-gra-mo-wa-nia li-nio-we-go dla 
-te-go wa-rian-tu:(tabelka!!!) 
- []
+[5] <wykresy/szeregowe_lacza.png, id=34, 602.25pt x 335.2525pt>
+File: wykresy/szeregowe_lacza.png Graphic file (type png)
 
-
-Overfull \hbox (24.4033pt too wide) in paragraph at lines 155--156
+<use wykresy/szeregowe_lacza.png>
+Overfull \hbox (24.4033pt too wide) in paragraph at lines 141--146
 []\OT4/cmr/m/n/10.95 Rozwi¡zanie pro-ble-mu pro-gra-mo-wa-nia li-nio-we-go dla 
-te-go wa-rian-tu:(tabelka!!!) 
- []
-
-[6]
-Overfull \hbox (24.4033pt too wide) in paragraph at lines 172--173
-[]\OT4/cmr/m/n/10.95 Rozwi¡zanie pro-ble-mu pro-gra-mo-wa-nia li-nio-we-go dla 
-te-go wa-rian-tu:(tabelka!!!) 
+te-go wa-rian-tu:(tabelka!!!)
  []
 
 
-Overfull \hbox (24.4033pt too wide) in paragraph at lines 192--193
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6 <./wykresy/szeregowe_proc.png (PNG copy)>]
+<wykresy/1p1f_proc.png, id=40, 621.32124pt x 379.4175pt>
+File: wykresy/1p1f_proc.png Graphic file (type png)
+
+<use wykresy/1p1f_proc.png>
+Overfull \hbox (24.4033pt too wide) in paragraph at lines 164--169
 []\OT4/cmr/m/n/10.95 Rozwi¡zanie pro-ble-mu pro-gra-mo-wa-nia li-nio-we-go dla 
-te-go wa-rian-tu:(tabelka!!!) 
+te-go wa-rian-tu:(tabelka!!!)
  []
 
-[7]
-Overfull \hbox (24.4033pt too wide) in paragraph at lines 209--210
+[7 <./wykresy/szeregowe_lacza.png (PNG copy)>]
+<wykresy/1p1f_lacza.png, id=45, 621.32124pt x 379.4175pt>
+File: wykresy/1p1f_lacza.png Graphic file (type png)
+
+<use wykresy/1p1f_lacza.png>
+Overfull \hbox (24.4033pt too wide) in paragraph at lines 184--189
 []\OT4/cmr/m/n/10.95 Rozwi¡zanie pro-ble-mu pro-gra-mo-wa-nia li-nio-we-go dla 
-te-go wa-rian-tu:(tabelka!!!) 
+te-go wa-rian-tu:(tabelka!!!)
  []
 
-[8] [9]
-Overfull \hbox (24.4033pt too wide) in paragraph at lines 303--304
+[8 <./wykresy/1p1f_proc.png (PNG copy)>]
+<wykresy/2p1f_proc.png, id=50, 621.32124pt x 379.4175pt>
+File: wykresy/2p1f_proc.png Graphic file (type png)
+
+<use wykresy/2p1f_proc.png>
+Overfull \hbox (24.4033pt too wide) in paragraph at lines 207--212
 []\OT4/cmr/m/n/10.95 Rozwi¡zanie pro-ble-mu pro-gra-mo-wa-nia li-nio-we-go dla 
-te-go wa-rian-tu:(tabelka!!!) 
+te-go wa-rian-tu:(tabelka!!!)
  []
 
-[10] [11]
-Overfull \hbox (24.4033pt too wide) in paragraph at lines 387--388
+[9 <./wykresy/1p1f_lacza.png (PNG copy)>]
+<wykresy/2p1f_lacza.png, id=55, 621.32124pt x 379.4175pt>
+File: wykresy/2p1f_lacza.png Graphic file (type png)
+
+<use wykresy/2p1f_lacza.png>
+Overfull \hbox (24.4033pt too wide) in paragraph at lines 228--233
 []\OT4/cmr/m/n/10.95 Rozwi¡zanie pro-ble-mu pro-gra-mo-wa-nia li-nio-we-go dla 
-te-go wa-rian-tu:(tabelka!!!) 
+te-go wa-rian-tu:(tabelka!!!)
  []
 
-[12] [13] (./pr.aux) ) 
+[10 <./wykresy/2p1f_proc.png (PNG copy)>] [11 <./wykresy/2p1f_lacza.png (PNG co
+py)>] [12] <wykresy/1p2f_proc.png, id=68, 621.32124pt x 407.5225pt>
+File: wykresy/1p2f_proc.png Graphic file (type png)
+
+<use wykresy/1p2f_proc.png>
+Overfull \hbox (24.4033pt too wide) in paragraph at lines 326--331
+[]\OT4/cmr/m/n/10.95 Rozwi¡zanie pro-ble-mu pro-gra-mo-wa-nia li-nio-we-go dla 
+te-go wa-rian-tu:(tabelka!!!)
+ []
+
+[13] [14 <./wykresy/1p2f_proc.png (PNG copy)>]
+<wykresy/1p2f_lacza.png, id=76, 621.32124pt x 407.5225pt>
+File: wykresy/1p2f_lacza.png Graphic file (type png)
+
+<use wykresy/1p2f_lacza.png>
+Overfull \hbox (24.4033pt too wide) in paragraph at lines 414--419
+[]\OT4/cmr/m/n/10.95 Rozwi¡zanie pro-ble-mu pro-gra-mo-wa-nia li-nio-we-go dla 
+te-go wa-rian-tu:(tabelka!!!)
+ []
+
+[15] [16 <./wykresy/1p2f_lacza.png (PNG copy)>] [17] (./pr.aux) ) 
 Here is how much of TeX's memory you used:
- 1000 strings out of 95058
- 11537 string characters out of 1182801
- 61605 words of memory out of 1500000
- 4185 multiletter control sequences out of 10000+50000
+ 1396 strings out of 95057
+ 17197 string characters out of 1182779
+ 65446 words of memory out of 1500000
+ 4566 multiletter control sequences out of 10000+50000
  11804 words of font info for 35 fonts, out of 1200000 for 2000
  48 hyphenation exceptions out of 8191
- 25i,9n,24p,1092b,319s stack positions out of 5000i,500n,6000p,200000b,5000s
+ 25i,9n,24p,1094b,270s stack positions out of 5000i,500n,6000p,200000b,5000s
+{/usr/share/te
+xmf-texlive/fonts/enc/dvips/pl/plms.enc}{/usr/share/texmf-texlive/fonts/enc/dvi
+ps/pl/plrm.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/pl/plmi.enc}</usr/shar
+e/texmf-texlive/fonts/type1/bluesky/cm/cmbsy10.pfb></usr/share/texmf-texlive/fo
+nts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/pl
+/plbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plbx12.pfb></usr/sh
+are/texmf-texlive/fonts/type1/public/pl/plmi10.pfb></usr/share/texmf-texlive/fo
+nts/type1/public/pl/plr10.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/p
+lr12.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plr17.pfb></usr/share/
+texmf-texlive/fonts/type1/public/pl/plsy10.pfb>
+Output written on pr.pdf (18 pages, 240884 bytes).
+PDF statistics:
+ 119 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 131072)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-Output written on pr.dvi (14 pages, 27060 bytes).

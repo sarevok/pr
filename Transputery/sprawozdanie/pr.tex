@@ -4,14 +4,15 @@
 \usepackage[utf8]{inputenc}% ew. utf8 lub cp1250
 % Zdefiniowanie autora i~tytułu:
 \title{Sprawozdanie: Testy systemu transputerowego}
-\author{Szymon Francuzik Stanisław Jankowski}
+\author{Szymon Francuzik\and
+Stanisław Jankowski}
 \date{24 listopada 2008}
 \frenchspacing
 \begin{document}
 % Wstawienie autora i~tytułu do składu:
 \maketitle
 \section{Opis zadania}
-Problem polega na porównywaniu różnych sposobów przetwarzania zadań jednorodnych w systemie transputerowym. Zadaną architekturą systemu jest tu łańcuch 7 transputerów z centralnie położonym źródlem danych. Założono, iż w miarę oddalania się od źródła danych, prędkość kolejnego transputera maleje dwukrotnie w porównaniu do poprzedniego. Rozważono następujące sposoby realizacji przetwarzania:
+Problem polega na porównywaniu różnych sposobów przetwarzania zadań jednorodnych w systemie transputerowym. Zadaną architekturą systemu jest łańcuch 7 transputerów z centralnie położonym źródlem danych. Zgodnie z treścią zadania założono, iż w miarę oddalania się od źródła danych, prędkość każdego kolejnego transputera maleje dwu-, cztero- i ośmiokrotnie w stosunku do jego rzeczywistej szybkości. Rozważono następujące sposoby realizacji przetwarzania:
 \begin{itemize}
 \item przetwarzanie szeregowe
 \item przetwarzanie równoległe z jedną fazą obliczeń i jednym przesłaniem danych - 1f1p
@@ -25,18 +26,18 @@ Ponadto dla każdego z podanych wariantów rozpatrzono dwa sposoby wyboru transp
 \includegraphics[scale=0.4]{proce}
 \caption{Model maksymalizujący liczbę szybkich transputerów. \label{proce}}
 \end{figure} 
-\item wybór maksymalizujący liczbę szybkich łącz komunikacyjnych
+\item wybór maksymalizujący liczbę szybkich łączy komunikacyjnych
 \begin{figure}[htp!]
 \includegraphics[scale=0.4]{lacza}
-\caption{Model maksymalizujący liczbę szybkich łącz komunikacyjnych. \label{lacza}}
+\caption{Model maksymalizujący liczbę szybkich łączy komunikacyjnych. \label{lacza}}
 \end{figure} 
 \end{itemize}
-Wszystkie powyższe warianty rozpatrzono teoretycznie, konstruując odpowiednie problemy programowania liniowego, które pozwoliły dobrać opytmalną liczbę zadań do przetworzenia dla każdego procesora, która gwarantuje najkrótszy czas przetwarzania całej puli zadań. Aby ulożyć problemy programowania liniowego, przeprowadzono pomiary czasów komunikacji, oraz przetwarzania dla odpowiednich łącz oraz transputerów systemu.
+Wszystkie powyższe warianty rozpatrzono teoretycznie, konstruując odpowiednie problemy programowania liniowego, które pozwoliły dobrać opytmalną liczbę zadań do przetworzenia dla każdego procesora. Kryterium optymalności stanowił jak najkrótszy czas przetwarzania całej puli zadań. Aby ułożyć problemy programowania liniowego, przeprowadzono pomiary czasów komunikacji, oraz przetwarzania dla odpowiednich transputerów.
 
-Następnie napisano implementację wariantu z przetwarzaniem 1f1p oraz 1f2p, dla wariantu z maksymalizującegoliczbę szybkich łącz oraz dla wariantu maksymalizującego liczbę szybkich procesorow, przydzielając do każdego transputera liczbę zadań wyliczoną z modelu teoretycznego. Wyniki uzyskane z testów powyższych implementacji porównano następnie z modelami teoretycznymi.
+Następnie zaimplementowano warianty z przetwarzaniem 1f1p oraz 1f2p dla maksymalizacji liczby szybkich łączy oraz dla maksymalizacji liczby szybkich procesorów. Dla każdego transputera przydzielono liczbę zadań wyliczoną z modelu teoretycznego. Wyniki uzyskane z testów powyższych implementacji porównano następnie z modelami teoretycznymi.
 
 \section{Wyznaczanie parametrow systemu}
-Należało wyznaczyć czas inicjalizacji połączenia, prędkość komunikacji, oraz prędkość przetwarzania pojedynczego zadania dla badanego systemu. Uwzględniono fakt, iż czas inicjalizacji połączenia, oraz prędkość przetwarzania pojedynczego zadania, zależy od prędkości transputera - transputery w pierwszej kolumnie od lewej są szybsze niż pozostałe. Natomiast czas komunikacji zależny jest od rodzaju łącza - łącza poziome są szybsze niż pionowe.
+Należało wyznaczyć czas inicjalizacji połączenia, prędkość komunikacji oraz prędkość przetwarzania pojedynczego zadania. Uwzględniono fakt, iż czas inicjalizacji połączenia oraz prędkość przetwarzania pojedynczego zadania, zależy od prędkości transputera - transputery w pierwszej kolumnie od lewej są szybsze niż pozostałe. Natomiast czas komunikacji zależny jest od rodzaju łącza - łącza poziome są szybsze niż pionowe.
 
 \subsection{Pomiar czasów inicjalizacji połączenia, oraz prędkości komunikacji}
 Napisano program mierzący czasy inicjalizacji polączeń, oraz prędkości przesyłania danych. Pomiary dokonano pomiędzy:
@@ -45,7 +46,7 @@ Napisano program mierzący czasy inicjalizacji polączeń, oraz prędkości prze
 \item dwoma wolnymi transputerami połączonymi szybkim lączem
 \item dwoma wolnymi transputerami połączonymi wolnym lączem
 \end{itemize}
-Dokonano odpowiedniej synchronizacji procesów, aby upewnić się iż wszystkie one są zainicjowane i gotowe do przeprowadzenia pomiarów. Następnie uruchamiano funkcję ProcTime(), aby określić moment początku komunikacji i wysyłano pakiet danych do drugiego z transputerów, ktory natychmiast odsyłał otrzymane dane do nadawcy. Nadawca uruchamiał po raz drugi funkcję ProcTime(), aby określić moment końca komunikacji. Zarowno proces nadawcy jak i odbiorcy uruchamiany był z wysokim priorytetem, co gwarantowało wysoką dokładność pomiarów.
+Dokonano odpowiedniej synchronizacji procesów, aby upewnić się iż wszystkie one są zainicjowane i gotowe do przeprowadzenia pomiarów. Następnie uruchamiano funkcję ProcTime(), aby określić moment początku komunikacji i wysyłano pakiet danych do drugiego z transputerów, ktory natychmiast odsyłał otrzymane dane do nadawcy. Nadawca uruchamiał po raz drugi funkcję ProcTime(), aby określić moment zakończenia komunikacji. Zarowno proces nadawcy jak i odbiorcy uruchamiany był z wysokim priorytetem, co gwarantowało wysoką dokładność pomiarów.
 
 Procedurę powtarzano dla różnych wielkości pakietów z danymi. Następnie dla otrzymanych wyników obliczono regresję liniową, dzięki której otrzymano wartości czasu inicjalizacji komunikacji, oraz prędkości komunikacji. Powyższą procedurę powtarzano dla każdej z wymienionych trzech par transputerów. Oto otrzymane wyniki czasów inicjalizacji połączeń oraz przesyłania jednego pakietu danych:
 \begin{table}[h!]
@@ -63,13 +64,13 @@ Typ Łącza & Czas[$\mu$s]\\ \hline
 pionowe & 4,3\textbf{10,4}\\ \hline
 poziome & 2,25\textbf{10,94}\\ \hline
 \end{tabular}
-\caption{Wyniki pomiarów czasów inicjalizacji połączeń \label{comunication}}
+\caption{Wyniki pomiarów czasów przesyłania danych \label{comunication}}
 \end{table}
 
 \subsection{Pomiar prędkości przetwarzania}
 Napisano program mierzący prędkość przetwarzania pojedynczego zadania na transputerze szybkim oraz wolnym. Pojedyncze zadanie polegalo na obliczeniu metodą Hornera wartości następującego wielomianu: $W(x) = (((4*x+12)*x+3)*x+3)*x+7$.
 
-W tym celu na każdym z dwóch tranasputerów, których dotyczyły pomiary, utworzono po dwa procesy. Proces z priorytetem wolnym, na którym odbywały się obliczenia, oraz proces z priorytetem wysokim, na którym odbywały się pomiary czasu. Wybór takie sposobu pomiarów wynika z próby jak najdokładniejszego odwzorowania architektury zastosowanej przy implementacji modeli. Po odpowiedniej synchronizacji procesów, która gwarantuje ich gotowość do przeprowadzenia pomiarów, proces obliczeniowy wysyłał sygnał - liczbę całkowitą do procesu pomiarowego i zaczynał obliczenia.  Proces pomiarowy po otrzymaniu pierwszego sygnału uruchamiał funkcję ProcTime() do uzyskania czasu rozpoczęcia obliczeń. Proces obliczeniowy po zakończeniu obliczeń wysyłał do procesu mierzącego czas kolejny sygnał. Proces mierzący, po odebraniu drugiego sygnalu, uruchamiał funkcję ProcTime() aby uzyskać czas zakończenia obliczeń. Różnica obu czasów dała czas trwania obliczeń powiększony o czas przesyłania komunikatu między procesami (ok. 18 $\mu$s). 
+W tym celu na każdym z dwóch tranasputerów, których dotyczyły pomiary, utworzono po dwa procesy. Proces z priorytetem niskim, na którym odbywały się obliczenia, oraz proces z priorytetem wysokim, na którym odbywały się pomiary czasu. Wybór takiego sposobu pomiarów wynika z próby jak najdokładniejszego odwzorowania architektury zastosowanej przy implementacji modeli. Po odpowiedniej synchronizacji procesów, która gwarantuje ich gotowość do przeprowadzenia pomiarów, proces obliczeniowy wysyłał sygnał - liczbę całkowitą do procesu pomiarowego i zaczynał obliczenia.  Proces pomiarowy po otrzymaniu pierwszego sygnału uruchamiał funkcję ProcTime() do uzyskania czasu rozpoczęcia obliczeń. Proces obliczeniowy po zakończeniu obliczeń wysyłał do procesu mierzącego czas kolejny sygnał. Proces mierzący, po odebraniu drugiego sygnalu, uruchamiał funkcję ProcTime() aby uzyskać czas zakończenia obliczeń. Różnica obu czasów dała czas trwania obliczeń powiększony o czas przesyłania komunikatu między procesami (ok. 18 $\mu$s). 
 
 Procedurę powtarzano dla różnej liczby zadań do przetworzenia przez procesor, przy czym dla każdej liczby zadań pomiar przeprowadzano dwudziestokrotnie. Następnie dla otrzymanych wyników obliczono regresję liniową, dzięki ktorej otrzymano wartości prędkości obliczeń dla transputera szybkiego oraz wolnego. Oto torzymane wyniki prędkości przetwarzania pojedynczego zadania:
 \begin{table}[h!]
@@ -82,15 +83,15 @@ wolny & \textbf{6,83}\\ \hline
 \end{table}
 
 \section{Opis modeli systemów}
-Dla każdego wariantu realizacji obliczeń opisanego w punkcjie pierwszym, utworzono model matemetyczny. Jest nim zadanie programowania liniowego, które następnie rozwiązywano za pomocą programu lp solve. Pozwoliło to uzyskać optymalne rozkłady puli zadań na poszczególne procesory, minimalizując tym samym czasy zakończenia obliczeń.
+Dla każdego wariantu realizacji obliczeń opisanego w punkcjie pierwszym, utworzono model matemetyczny. Jest nim zadanie programowania liniowego, które następnie rozwiązywano za pomocą programu lp\_solve. Pozwoliło to uzyskać optymalne rozkłady puli zadań na poszczególnych procesorach, minimalizując tym samym czasy zakończenia obliczeń.
 
 \begin{itemize}
 \item \textbf{v} - całkowita liczba zadań do realizacji przez system
 \item \textbf{T} - minimalizowany całkowity czas przetwarzania v zadań
 \item \textbf{li} - liczba zadań dla itego procesora, i=1..7
-\item \textbf{li} - czas przetwarzania pojedynczego zadania na itym transputerze, i=1..7
+\item \textbf{ai} - czas przetwarzania pojedynczego zadania na itym transputerze, i=1..7
 \item \textbf{s1, s2} - czas inicjalizacji komunikacji, odpowiednio dla szybkiego i wolnego transputera
-\item \textbf{s1, s2} - czas przesłu jednego pakietu danych, odpowiednio wolnym i szybkim łączem
+\item \textbf{c1, c2} - czas przesłu jednego pakietu danych, odpowiednio wolnym i szybkim łączem
 \end{itemize}
 \textbf{Uwaga!
 \begin{itemize}
@@ -117,6 +118,10 @@ R8: v $=$ l1+l2+l3+l4+l5+l6+l7;\linebreak
 \end{flushleft}
 
 Rozwiązanie problemu programowania liniowego dla tego wariantu:(tabelka!!!)
+\begin{figure}[htp!]
+\includegraphics[width=1.0\textwidth]{wykresy/szeregowe_proc}
+\caption{Diagram Gantta dla modelu szeregowego z maksymalizacją szybkich procesorów \label{szeregowe_p}}
+\end{figure}
 
 \subsubsection{Maksymalizacja liczby szybkich łączy}
 \begin{flushleft}
@@ -134,9 +139,13 @@ R8: v = l1+l2+l3+l4+l5+l6+l7;\linebreak
 \end{flushleft}
 
 Rozwiązanie problemu programowania liniowego dla tego wariantu:(tabelka!!!)
+\begin{figure}[h!]
+\includegraphics[width=1.0\textwidth]{wykresy/szeregowe_lacza}
+\caption{Diagram Gantta dla modelu szeregowego z maksymalizacją szybkich łączy \label{szeregowe_l}}
+\end{figure}
 
 \subsection{Model 1f1p}
-W modelu tym założono, że komunikacja i obliczenia na każdym transputerze przebiega równolegle. Ponadto dla transputera - źródła, komunikacja przebiega równolegle do obu końców łańcucha. Oto problemy liniowe dla omawianego modelu, przy przyjętych oznaczeniach.(rysunek!!!)
+W modelu tym założono, że komunikacja na każdym transputerze przebiega równolegle z obliczeniami. Ponadto dla transputera-źródła równolegle odbywa się przesyłanie w obie strony. Oto problemy liniowe dla omawianego modelu, przy przyjętych oznaczeniach.(rysunek!!!)
 
 \subsubsection{Maksymalizacja liczby szybkich procesorów}
 \begin{flushleft}
@@ -153,7 +162,10 @@ R8: v = l1+l2+l3+l4+l5+l6+l7;\linebreak
 \end{flushleft}
 
 Rozwiązanie problemu programowania liniowego dla tego wariantu:(tabelka!!!)
-
+\begin{figure}[htp!]
+\includegraphics[width=1.0\textwidth]{wykresy/1p1f_proc}
+\caption{Diagram Gantta dla modelu 1f1p z maksymalizacją szybkich procesorów \label{1p1f_p}}
+\end{figure}
 \subsubsection{Maksymalizacja liczby szybkich łączy}
 \begin{flushleft}
 
@@ -170,7 +182,10 @@ R8: v = l1+l2+l3+l4+l5+l6+l7;\linebreak
 \end{flushleft}
 
 Rozwiązanie problemu programowania liniowego dla tego wariantu:(tabelka!!!)
-
+\begin{figure}[htp!]
+\includegraphics[width=1.0\textwidth]{wykresy/1p1f_lacza}
+\caption{Diagram Gantta dla modelu 1f1p z maksymalizacją szybkich łączy \label{1p1f_l}}
+\end{figure}
 \subsection{Model 1f2p}
 W modelu tym założono, że komunikacja odbywa się w dwóch etapach. W pierwszym etapie komunikacji, transputer odbiorca otrzymuje dane potrzebne mu do całkowitej realizacji swojej części obliczeń. W drugim etapie komunikacji otrzymuje natomiast dane do przesłania kolejnym transputerom w łańcuchu. Proces obliczeń i komunikacji został zrównoleglony w maksymalnym możliwym stopniu. Oto problemy liniowe dla omawianego modelu, przy przyjętych oznaczeniach.(rysunek!!!)
 
@@ -190,6 +205,10 @@ R8: v = l1+l2+l3+l4+l5+l6+l7;\linebreak
 \end{flushleft}
 
 Rozwiązanie problemu programowania liniowego dla tego wariantu:(tabelka!!!)
+\begin{figure}[htp!]
+\includegraphics[width=1.0\textwidth]{wykresy/2p1f_proc}
+\caption{Diagram Gantta dla modelu 1f2p z maksymalizacją szybkich procesorów \label{2p1f_p}}
+\end{figure}
 
 \subsubsection{Maksymalizacja liczby szybkich łączy}
 \begin{flushleft}
@@ -207,15 +226,19 @@ R8: v = l1+l2+l3+l4+l5+l6+l7;\linebreak
 \end{flushleft}
 
 Rozwiązanie problemu programowania liniowego dla tego wariantu:(tabelka!!!)
+\begin{figure}[htp!]
+\includegraphics[width=1.0\textwidth]{wykresy/2p1f_lacza}
+\caption{Diagram Gantta dla modelu 1f2p z maksymalizacją szybkich łączy \label{2p1f_l}}
+\end{figure}
 
-\subsection{Model 2f1p}
-W modelu tym komunikację między transputerami rozbito na dwie fazy. W pierwszej komunikacji fazie każdy z transputerów otrzymuje tylko częśc potrzebnych mu do obliczeń danych i może wykonać pierwszę fazę obliczeń. Natomiast w drugiej fazie komunikacji każdy z transputerów otrzymiuje drugą część potrzebnych mu do obliczeń danych i moze realizować drugą fazę obliczeń. Przesyłanie i obliczenia realizowane sę w maksymalnie zrównoleglony sposob. 
+\subsection{Model 2f1p}końców
+W modelu tym komunikację między transputerami rozbito na dwie fazy. W pierwszej, każdy z transputerów otrzymuje tylko częśc potrzebnych mu do obliczeń danych i może wykonać pierwszę fazę obliczeń. Natomiast w drugiej fazie komunikacji każdy z transputerów otrzymiuje drugą część potrzebnych mu do obliczeń danych. Przesyłanie i obliczenia realizowane sę w maksymalnie zrównoleglony sposob. 
 Do opisu powyższego modelu niezbędne bylo wprowadzenie nowych parametrów opisujących system:
 \begin{itemize}
 \item \textbf{ob}ij - Początek obliczeń na itym transputerze w jotej fazie, i=1..7, j=1..2, wyjątek dla pierwszego transputera - ob1
-\item \textbf{oe}ij - Początek obliczeń na itym transputerze w jotej fazie, i=1..7, j=1..2, wyjątek dla pierwszego transputera - oe1
-\item \textbf{kb}ij - Początek komunikacji na itym transputerze w jotej fazie, i=1..6, j=1..2, wyjątek dla pierwszego transputera - kbijk, gdzie k oznacza: g - komunikację w stronę węzła 7, d - w stronę węzła 4
-\item \textbf{ke}ij - Początek komunikacji na itym transputerze w jotej fazie, i=1..6, j=1..2, wyjątek dla pierwszego transputera - keijk, gdzie k oznacza: g - komunikację w stronę węzła 7, d - w stronę węzła 4 
+\item \textbf{oe}ij - Koniec obliczeń na itym transputerze w jotej fazie, i=1..7, j=1..2, wyjątek dla pierwszego transputera - oe1
+\item \textbf{kb}ij - Początek komunikacji na itym transputerze w jotej fazie, i=1..6, j=1..2, wyjątek dla pierwszego transputera - kbijl, gdzie l oznacza: g - komunikację w stronę węzła 7, d - w stronę węzła 4
+\item \textbf{ke}ij - Koniec komunikacji na itym transputerze w jotej fazie, i=1..6, j=1..2, wyjątek dla pierwszego transputera - keijl, gdzie l oznacza: g - komunikację w stronę węzła 7, d - w stronę węzła 4 
 \end{itemize}
 Oto problemy liniowe dla omawianego modelu, przy przyjętych oznaczeniach.(rysunek!!!)
 \subsubsection{Maksymalizacja liczby szybkich procesorów}
@@ -301,6 +324,10 @@ r68: oe72 = ob72 + a7*l72;\linebreak
 \end{flushleft}
 
 Rozwiązanie problemu programowania liniowego dla tego wariantu:(tabelka!!!)
+\begin{figure}[htp!]
+\includegraphics[width=1.0\textwidth]{wykresy/1p2f_proc}
+\caption{Diagram Gantta dla modelu 2f1p z maksymalizacją szybkich procesorów \label{1p2f_p}}
+\end{figure}
 
 \subsubsection{Maksymalizacja liczby szybkich łączy}
 
@@ -385,9 +412,13 @@ r68: oe72 = ob72 + a7*l72;\linebreak
 \end{flushleft}
 
 Rozwiązanie problemu programowania liniowego dla tego wariantu:(tabelka!!!)
+\begin{figure}[htp!]
+\includegraphics[width=1.0\textwidth]{wykresy/1p2f_lacza}
+\caption{Diagram Gantta dla modelu 2f1p z maksymalizacją szybkich łączy \label{1p2f_l}}
+\end{figure}
 
 \section{Opis implementacji modeli}
-Zaimplementowano programy realizujące modele 1f1p oraz 2f1p w wersjach uwzględniających architekturę zarowno dla maksymalizacji liczby szybkich procesorów jak i maksymalizacji liczby szybkich łącz - patrz opis zadania. Dla każdego transputera użytego w danej implementacji stworzono dwa procesy: obliczeniowy i pomiarowo-komunikacyjny. Proces obliczeniowy uruchamiano z priorytetem niskim. Natomiast proces pomiarowo-komunikacyjny z priorytetem wysokim.
+Zaimplementowano programy realizujące modele 1f1p oraz 1f2p w wersjach uwzględniających architekturę zarówno dla maksymalizacji liczby szybkich procesorów jak i maksymalizacji liczby szybkich łączy - patrz opis zadania. Dla każdego transputera użytego w danej implementacji stworzono dwa procesy: obliczeniowy i pomiarowo-komunikacyjny. Proces obliczeniowy uruchamiano z priorytetem niskim. Natomiast proces pomiarowo-komunikacyjny z priorytetem wysokim.
 
 Pierwszą fazą działania programów była synchronizacja porcesów.
 
