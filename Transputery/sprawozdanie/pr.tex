@@ -118,7 +118,7 @@ R8: v $=$ l1+l2+l3+l4+l5+l6+l7;\linebreak
 \end{flushleft}
 
 Rozwiązanie problemu programowania liniowego dla tego wariantu:
-\begin{table}[hp!]
+\begin{table}[h!]
 \begin{tabular}{|l|l|l|l|}\hline
 transputer & poczatek przesyłania(obliczeń) & koniec przesylania & koniec obliczeń\\ \hline
 1	&0			&15245,3	&46129,1\\	\hline
@@ -132,11 +132,6 @@ transputer & poczatek przesyłania(obliczeń) & koniec przesylania & koniec obli
 \end{tabular}
 \caption{Wyniki obliczeń dla modelu szeregowego z maksymalizacją szybkich procesorów \label{szeregowe_pt}}
 \end{table}
-
-\begin{figure}[htp!]
-\includegraphics[width=1.0\textwidth]{wykresy/szeregowe_proc}
-\caption{Diagram Gantta dla modelu szeregowego z maksymalizacją szybkich procesorów \label{szeregowe_p}}
-\end{figure}
 
 \subsubsection{Maksymalizacja liczby szybkich łączy}
 \begin{flushleft}
@@ -154,7 +149,7 @@ R8: v = l1+l2+l3+l4+l5+l6+l7;\linebreak
 \end{flushleft}
 
 Rozwiązanie problemu programowania liniowego dla tego wariantu:
-\begin{table}[hp!]
+\begin{table}[h!]
 \begin{tabular}{|l|l|l|l|}\hline
 transputer & poczatek przesyłania(obliczeń) & koniec przesylania & koniec obliczeń\\ \hline
 1	&0			&15167,9	&45887,6\\ \hline
@@ -169,13 +164,18 @@ transputer & poczatek przesyłania(obliczeń) & koniec przesylania & koniec obli
 \caption{Wyniki obliczeń dla modelu szeregowego z maksymalizacją szybkich łączy \label{szeregowe_lt}}
 \end{table}
 
-\begin{figure}[h!]
+\begin{figure}[!p]
+\includegraphics[width=1.0\textwidth]{wykresy/szeregowe_proc}
+\caption{Diagram Gantta dla modelu szeregowego z maksymalizacją szybkich procesorów \label{szeregowe_p}}
+\end{figure}
+
+\begin{figure}[!p]
 \includegraphics[width=1.0\textwidth]{wykresy/szeregowe_lacza}
 \caption{Diagram Gantta dla modelu szeregowego z maksymalizacją szybkich łączy \label{szeregowe_l}}
 \end{figure}
 
 \subsection{Model 1f1p}
-W modelu tym założono, że komunikacja na każdym transputerze przebiega równolegle z obliczeniami. Ponadto dla transputera-źródła równolegle odbywa się przesyłanie w obie strony. Oto problemy liniowe dla omawianego modelu, przy przyjętych oznaczeniach.(rysunek!!!)
+W modelu tym założono, że komunikacja na każdym transputerze przebiega równolegle z obliczeniami. Ponadto dla transputera-źródła równolegle odbywa się przesyłanie w obie strony. Oto problemy liniowe dla omawianego modelu, przy przyjętych oznaczeniach.
 
 \subsubsection{Maksymalizacja liczby szybkich procesorów}
 \begin{flushleft}
@@ -207,7 +207,7 @@ transputer & poczatek przesyłania(obliczeń) & koniec przesylania & koniec obli
 \caption{Wyniki obliczeń dla modelu 1f1p z maksymalizacją szybkich procesorów \label{1f1p_pt}}
 \end{table}
 
-\begin{figure}[htp!]
+\begin{figure}[p!]
 \includegraphics[width=1.0\textwidth]{wykresy/1p1f_proc}
 \caption{Diagram Gantta dla modelu 1f1p z maksymalizacją szybkich procesorów \label{1p1f_p}}
 \end{figure}
@@ -242,10 +242,11 @@ transputer & poczatek przesyłania(obliczeń) & koniec przesylania & koniec obli
 \caption{Wyniki obliczeń dla modelu 1f1p z maksymalizacją szybkich łączy \label{1f1p_lt}}
 \end{table}
 
-\begin{figure}[htp!]
+\begin{figure}[p!]
 \includegraphics[width=1.0\textwidth]{wykresy/1p1f_lacza}
 \caption{Diagram Gantta dla modelu 1f1p z maksymalizacją szybkich łączy \label{1p1f_l}}
 \end{figure}
+\clearpage
 \subsection{Model 1f2p}
 W modelu tym założono, że komunikacja odbywa się w dwóch etapach. W pierwszym etapie komunikacji, transputer odbiorca otrzymuje dane potrzebne mu do całkowitej realizacji swojej części obliczeń. W drugim etapie komunikacji otrzymuje natomiast dane do przesłania kolejnym transputerom w łańcuchu. Proces obliczeń i komunikacji został zrównoleglony w maksymalnym możliwym stopniu. Oto problemy liniowe dla omawianego modelu, przy przyjętych oznaczeniach.
 
@@ -282,7 +283,7 @@ Transputer&Odebranie&Odbieranie&Wysyłanie&Wysyłanie&Koniec obliczeń\\
 \caption{Wyniki pomiarów dla modelu 1f2p z maksymalizacją szybkich procesorów \label{1f2p_pt}}
 \end{table}
 
-\begin{figure}[htp!]
+\begin{figure}[p!]
 \includegraphics[width=1.0\textwidth]{wykresy/2p1f_proc}
 \caption{Diagram Gantta dla modelu 1f2p z maksymalizacją szybkich procesorów \label{2p1f_p}}
 \end{figure}
@@ -319,11 +320,11 @@ Transputer&Odebranie&Odbieranie&Wysyłanie&Wysyłanie&Koniec obliczeń\\
 \caption{Wyniki pomiarów dla modelu 1f2p z maksymalizacją szybkich łączy \label{1f2p_lt}}
 \end{table}
 
-\begin{figure}[htp!]
+\begin{figure}[p!]
 \includegraphics[width=1.0\textwidth]{wykresy/2p1f_lacza}
 \caption{Diagram Gantta dla modelu 1f2p z maksymalizacją szybkich łączy \label{2p1f_l}}
 \end{figure}
-
+\clearpage
 \subsection{Model 2f1p}
 W modelu tym komunikację między transputerami rozbito na dwie fazy. W pierwszej, każdy z transputerów otrzymuje tylko częśc potrzebnych mu do obliczeń danych i może wykonać pierwszę fazę obliczeń. Natomiast w drugiej fazie komunikacji każdy z transputerów otrzymiuje drugą część potrzebnych mu do obliczeń danych. Przesyłanie i obliczenia realizowane sę w maksymalnie zrównoleglony sposob. 
 Do opisu powyższego modelu niezbędne bylo wprowadzenie nowych parametrów opisujących system:
@@ -422,7 +423,7 @@ Rozwiązanie problemu programowania liniowego dla tego wariantu:
 Trans.	&start &start &koniec &koniec &start &start	&koniec	&Koniec\\
 &1. obl. &1. kom. &1. kom. &1. obl. &2. obl. &2. kom.	&2.	kom. &obl.\\ \hline
 1	&0			&0		&4172.8		&24802.8	&			&4172.8		&11351.3	&24802.8\\ \hline
-1	&-1			&0		&4190		&			&			&4190		&11230.9	&\\ \hline
+1	&			&0		&4190		&			&			&4190		&11230.9	&\\ \hline
 2	&4190		&4190	&6083.8		&11238.8	&11238.8	&11230.9	&13851.4	&24808.4\\ \hline
 3	&6083.8		&6083.8	&6418.2		&13845.4	&13851.4	&13851.4	&14293.8	&24807.4\\ \hline
 4	&6418.2		&		&			&14286.4	&14293.8	&			&			&24784.7\\ \hline
@@ -433,7 +434,7 @@ Trans.	&start &start &koniec &koniec &start &start	&koniec	&Koniec\\
 \caption{Wyniki pomiarów dla modelu 2f1p z maksymalizacją szybkich procesorów \label{2f1p_pt}}
 \end{table}
 
-\begin{figure}[htp!]
+\begin{figure}[p!]
 \includegraphics[width=1.0\textwidth]{wykresy/1p2f_proc}
 \caption{Diagram Gantta dla modelu 2f1p z maksymalizacją szybkich procesorów \label{1p2f_p}}
 \end{figure}
@@ -538,15 +539,15 @@ Trans.	&start &start &koniec &koniec &start &start	&koniec	&Koniec\\
 \caption{Wyniki pomiarów dla modelu 2f1p z maksymalizacją szybkich łączy \label{2f1p_lt}}
 \end{table}
 
-\begin{figure}[htp!]
+\begin{figure}[p!]
 \includegraphics[width=1.0\textwidth]{wykresy/1p2f_lacza}
 \caption{Diagram Gantta dla modelu 2f1p z maksymalizacją szybkich łączy \label{1p2f_l}}
 \end{figure}
-
+\clearpage
 \section{Opis implementacji modeli}
 Zaimplementowano programy realizujące modele 1f1p oraz 1f2p w wersjach uwzględniających architekturę zarówno dla maksymalizacji liczby szybkich procesorów jak i maksymalizacji liczby szybkich łączy - patrz opis zadania. Dla każdego transputera użytego w danej implementacji stworzono dwa procesy: obliczeniowy i pomiarowo-komunikacyjny. Proces obliczeniowy uruchamiano z priorytetem niskim. Natomiast proces pomiarowo-komunikacyjny z priorytetem wysokim.
 
-Pierwszą fazą działania programów była synchronizacja porcesów. Po dokonaniu synchronizacji na każdym z transputerów, począwszy od najbardziej zewnętrznych, odczytywano aktualną wartość zegara, następnie przesyłano komunikat w kierunku środka łańcucha. Każdy następny transputer odbierając ten komunikat pobierał aktualną wartość TimeProc(). Pomierzone w ten sposób czasy uznano za początek przetwarzania. Jako, że najpierw mierzono czas na najbardziej zewnętrznych transputerach, należy mieć na uwadze, że uzyskane na nich względne punkty pomiarowe (liczone od rozpoczęcia przetwarzania) są nieco większe od faktycznych. Różnica ta jest niewielka w stosunku do długości operacji na danych.
+Pierwszą fazą działania programów była synchronizacja porcesów. Po dokonaniu synchronizacji, na każdym z transputerów, począwszy od najbardziej zewnętrznych, odczytywano aktualną wartość zegara, następnie przesyłano komunikat w kierunku środka łańcucha. Każdy następny transputer odbierając ten komunikat pobierał aktualną wartość ProcTime(). Pomierzone w ten sposób czasy uznano za początek przetwarzania. Jako, że najpierw mierzono czas na najbardziej zewnętrznych transputerach, należy mieć na uwadze, że uzyskane na nich względne punkty pomiarowe (liczone od rozpoczęcia przetwarzania) są nieco większe od faktycznych. Różnica ta jest niewielka w stosunku do długości operacji na danych.
 
 \subsection{Model 1f1p}
 W modelu tym mierzono trzy momenty czasowe dla każdego z transputerów: bezpośrednio przed i po wyslaniu danych do kolejnego transputera oraz po otrzymaniu informacji o zakończeniu obliczeń. Do rozsyłania danych z centralnego transputera użyto dwóch procesów o wysokim priorytecie realizujących zadanie równocześnie. Obliczenia wykonywano na procesach o niskim priorytecie, co gwarantowało, że będą one uruchamiane w czasie wysyłania danych, nie blokując jednocześnie inicjalizacji tego wysyłania. Gdy proces komunikacyjny otrzymał dane, wysyłał informację synchronizującą do procesu obliczeniowego, informując o możliwości rozpoczęcia obliczeń. Następnie proces o wysokim priorytecie inicjował przesyłanie danych na kolejny transputer. Po zakończeniu przetwarzania proces o niskim priorytecie wysyłał komunikat do procesu o wysokim priorytecie, na którym mierzony był czas zakończenia obliczeń. Dopiero po ustaleniu wszystkich potrzebnych czasów dane przesyłane były do procesu wejścia-wyjścia.
@@ -561,8 +562,6 @@ W tym  przypadku wyznaczano czasy:
 \end{itemize}
 Struktura i zadania procesów pozostały niezmienione w stosunku do implementacj modelu 1f1p. Po otrzymaniu pierwszej porcji danych proces komunikacyjny wysyłał komunikat do procesu obliczeniowego o możliwości rozpoczęcia obliczeń, po czym odbierał drugą porcję danych, przekazując ją w dwóch porcjach do następnego transputera. Pomiar czasu zakończenia obliczeń odbywał się w sposób opisany dla modelu 1f1p.
 \section{Wyniki testów implementacji dla wybranych modeli}
-\subsection{Model 1f1p}
-\subsubsection{Maksymalizacja liczby szybkich procesorów}
 \begin{table}[hp!]
 \begin{tabular}{|l|l|l|l|}\hline
 transputer & poczatek przesyłania(obliczeń) & koniec przesylania & koniec obliczeń\\ \hline
@@ -577,12 +576,11 @@ transputer & poczatek przesyłania(obliczeń) & koniec przesylania & koniec obli
 \end{tabular}
 \caption{Wyniki pomiarów dla modelu 1f1p z maksymalizacją szybkich transputerów \label{i1f1p_p}}
 \end{table}
-\begin{figure}[hp!]
+\begin{figure}[p!]
 \includegraphics[width=1.0\textwidth]{wykresy/i1p1f_proc}
 \caption{Diagram Gantta dla pomiarów 1f1p z maksymalizacją szybkich transputerów \label{i1p1f_pg}}
 \end{figure}
-\subsubsection{Maksymalizacja liczby szybkich łączy}
-\begin{table}[hp!]
+\begin{table}[p!]
 \begin{tabular}{|l|l|l|l|}\hline
 transputer & poczatek przesyłania(obliczeń) & koniec przesylania & koniec obliczeń\\ \hline
 1&0&10234&29434\\ \hline
@@ -596,44 +594,43 @@ transputer & poczatek przesyłania(obliczeń) & koniec przesylania & koniec obli
 \end{tabular}
 \caption{Wyniki pomiarów dla modelu 1f1p z maksymalizacją szybkich łączy \label{i1f1p_l}}
 \end{table}
-\begin{figure}[hp!]
+\begin{figure}[p!]
 \includegraphics[width=1.0\textwidth]{wykresy/i1p1f_lacza}
 \caption{Diagram Gantta dla pomiarów 1f1p z maksymalizacją szybkich łączy \label{i1p1f_lg}}
 \end{figure}
-\subsection{Model 1f2p}
-\subsubsection{Maksymalizacja liczby szybkich procesorów}
-\begin{table}[h!]
+
+\begin{table}[p!]
 \begin{tabular}{|l|l|l|l|l|l|}\hline
 Transputer&Odebranie&Odbieranie&Wysyłanie&Wysyłanie&Koniec obliczeń\\
 &1. paczki&2. paczki&1. paczki&2. paczki&\\ \hline
-1&0&0&7031&10395&28673\\ \hline
-1&0&0&6873&10405&10405\\ \hline
+1&&&7031&10395&28673\\ \hline
+1&&&6873&10405&\\ \hline
 2&6896&10421&12890&13969&28350\\ \hline
-3&12913&13985&14553&14553&28207\\ \hline
-4&14575&14575&14575&14575&28236\\ \hline
+3&12913&13985&14553&&28207\\ \hline
+4&14575&&&&28236\\ \hline
 5&7061&10418&11781&12163&28468\\ \hline
-6&11804&12178&12553&12553&28490\\ \hline
-7&12576&12576&12576&12576&21478\\ \hline
+6&11804&12178&12553&&28490\\ \hline
+7&12576&&&&21478\\ \hline
 \end{tabular}
 \caption{Wyniki pomiarów dla modelu 1f2p z maksymalizacją szybkich transputerów \label{i2f1p_p}}
 \end{table}
-\begin{figure}[hp!]
+\begin{figure}[p!]
 \includegraphics[width=1.0\textwidth]{wykresy/i2p1f_proc}
 \caption{Diagram Gantta dla pomiarów 1f2p z maksymalizacją szybkich transputerów \label{i2p1f_pg}}
 \end{figure}
-\subsubsection{Maksymalizacja liczby szybkich łączy}
-\begin{table}[hp!]
+
+\begin{table}[p!]
 \begin{tabular}{|l|l|l|l|l|l|}\hline
 Transputer&Odebranie&Odbieranie&Wysyłanie&Wysyłanie&Koniec obliczeń\\
 &1. paczki&2. paczki&1. paczki&2. paczki&\\ \hline
-1&0&0&7000&10351&28545\\ \hline
-1&0&0&6842&10529&10529\\ \hline
+1&&&7000&10351&28545\\ \hline
+1&&&6842&10529&\\ \hline
 2&6866&10546&11873&12499&28202\\ \hline
-3&11895&12514&13134&13134&28153\\ \hline
-4&13158&13158&13158&13158&28091\\ \hline
+3&11895&12514&13134&&28153\\ \hline
+4&13158&&&&28091\\ \hline
 5&7031&10375&11733&12113&28348\\ \hline
-6&11755&12127&12500&12500&28388\\ \hline
-7&12523&12523&12523&12523&21371\\ \hline
+6&11755&12127&12500&&28388\\ \hline
+7&12523&&&&21371\\ \hline
 \end{tabular}
 \caption{Wyniki pomiarów dla modelu 1f2p z maksymalizacją szybkich łączy \label{i2f1p_l}}
 \end{table}
@@ -641,11 +638,12 @@ Transputer&Odebranie&Odbieranie&Wysyłanie&Wysyłanie&Koniec obliczeń\\
 \includegraphics[width=1.0\textwidth]{wykresy/i2p1f_lacza}
 \caption{Diagram Gantta dla pomiarów 1f2p z maksymalizacją szybkich łączy \label{i2p1f_lg}}
 \end{figure}
+\clearpage
 \section{Omówienie wyników  i wnioski}
-Porównano ze sobą wyniki odpowiadających sobie problemów liniowych z wynikami przeprowadzonych testów na systemie transputerowym. Okazało się, że różnice całkowitego czasu przetwarzania między modelem a wynikami testów nie przekraczały 3\%. Różnice te mogą być spowodowane nieuwzględnieniem w modelach teoretycznych czasów przełączania kontekstu pomiędzy wątkami na transputerze. Wpływ na rozbieżności mogł również mieć fakt oparcia się na modelu liniowym, który korzysta z parametrów systemu wyznaczonych przy pomocy regresji liniowej - a więc w sposób przybliżony.
+Porównano ze sobą wyniki odpowiadających sobie problemów liniowych z wynikami przeprowadzonych testów na systemie transputerowym. Okazało się, że różnice całkowitego czasu przetwarzania między modelem a wynikami testów nie przekraczały 3\%. Różnice te mogą być spowodowane nieuwzględnieniem w modelach teoretycznych czasów przełączania kontekstu pomiędzy procesami na transputerze. Wpływ na rozbieżności mogł również mieć fakt oparcia się na modelu liniowym, który korzysta z parametrów systemu wyznaczonych przy pomocy regresji liniowej - a więc w sposób przybliżony.
 
-Zbadano, który z rozważonych modeli dał najkrotszy czas realizacji zadania. Okazało się, iż zdecydowanie najgorszym modelem jest model szeregowy, co wydaje się być oczywiste, ponieważ ani komunikacja ani obliczenia nie są w nim zrównoleglone. Następny w kolejności model to 1f1p, który wykonał zadanie w czasie zdecydowanie krótszym niż model szeregowy. Dalszą, lecz niewielką, poprawę czasu wykonania zadania przyniosło zastosowanie modelu 1f2p. Jednak niewielki zysk, okupiony większym skomplikowaniem pociągającym za sobą trudniejszą implementację systemu, wydaje się być nieuzasadniony. Najlepszy model to 2f1p. Tutaj zysk w porównaniu z modelem 1f1p jest znaczny i rekompensuje on większą złożonośc systemu. Wyniki uzyskane z modeli liniowych zostały potwierdzone przez wyniki testów wybranych modeli na systemie transputerowym. W tym przypadku rownież model 1f2p był nieco lepszy od modelu 1f1p.
+Zbadano, który z rozważonych modeli dał najkrótszy czas realizacji zadania. Okazało się, iż zdecydowanie najgorszym modelem jest model szeregowy, co wydaje się być oczywiste, ponieważ ani komunikacja ani obliczenia nie są w nim zrównoleglone. Następny w kolejności model to 1f1p, który wykonał zadanie w czasie zdecydowanie krótszym niż model szeregowy. Dalszą, lecz niewielką, poprawę czasu wykonania zadania przyniosło zastosowanie modelu 1f2p. Jednak niewielki zysk, okupiony większym skomplikowaniem pociągającym za sobą trudniejszą implementację systemu, wydaje się być nieuzasadniony. Najlepszy model to 2f1p. Tutaj zysk w porównaniu z modelem 1f1p jest znaczny i rekompensuje on większą złożonośc systemu. Wyniki uzyskane z modeli liniowych zostały potwierdzone przez wyniki testów wybranych modeli na systemie transputerowym. W tym przypadku rownież model 1f2p był nieco lepszy od modelu 1f1p.
 
-Kolejne porównanie wyników dotyczyło podejść realizujących taki sam tryb przetwarzania - ale z architekturą dobraną pod kątem maksymalizacji liczby szybkich łącz lub maksymalizacji szybkich procesorów. We wszystkich przypadkach, zarówno dla modeli teoretycznych jak i dla testów na systemie transputerowym, nieco szybciej obliczenia wykonywane były dla architektury wykorzystującej maksymalną liczbę szybkich łącz. Różnice te jednak były minimalne, ponieważ obie architektury różniły się w niewielkim stopniu. Architektura maksymalizująca liczbę szybkich procesorow zawiera 4 szybkie procesory i 3 szybkie łącza, natomiast architektura maksymalizująca liczbę szybkich łącz zawiera 3 szybkie procesory i 4 szybkie łącza. Ponadto różnice występują w jednym z końców łańcucha, a więc w strefie systemu, do której dociera stosunkowo mało danych do obliczeń. Mimo to można wnioskować iż priorytetem w konstrukcji architektury systemu powinno być zapewnienie maksymalnej liczby szybkich łączy.
+Kolejne porównanie wyników dotyczyło podejść realizujących taki sam tryb przetwarzania - ale z architekturą dobraną pod kątem maksymalizacji liczby szybkich łączy lub maksymalizacji szybkich procesorów. We wszystkich przypadkach, zarówno dla modeli teoretycznych jak i dla testów na systemie transputerowym, nieco szybciej obliczenia wykonywane były dla architektury wykorzystującej maksymalną liczbę szybkich łączy. Różnice te jednak były minimalne, ponieważ obie architektury różniły się w niewielkim stopniu. Architektura maksymalizująca liczbę szybkich procesorow zawiera 4 szybkie procesory i 3 szybkie łącza, natomiast architektura maksymalizująca liczbę szybkich łączy zawiera 3 szybkie procesory i 4 szybkie łącza. Ponadto różnice występują w jednym z końców łańcucha, a więc w strefie systemu, do której dociera stosunkowo mało danych do obliczeń. Mimo to można wnioskować iż priorytetem w konstrukcji architektury systemu dla danego zadania powinno być zapewnienie maksymalnej liczby szybkich łączy.
 
 \end{document}
