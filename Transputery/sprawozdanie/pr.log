@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2008.11.4)  6 DEC 2008 04:05
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2008.11.4)  6 DEC 2008 15:36
 entering extended mode
  %&-line parsing enabled.
 **pr.tex
@@ -470,28 +470,67 @@ Overfull \hbox (24.4033pt too wide) in paragraph at lines 414--419
 te-go wa-rian-tu:(tabelka!!!)
  []
 
-[15] [16 <./wykresy/1p2f_lacza.png (PNG copy)>] [17] (./pr.aux) ) 
+[15] [16 <./wykresy/1p2f_lacza.png (PNG copy)>]
+Overfull \hbox (3.98952pt too wide) in paragraph at lines 437--437
+[]\OT4/cmr/bx/n/14.4 Wyniki te-stów im-ple-men-ta-cji dla wy-bra-nych mo-
+ []
+
+
+Overfull \hbox (43.29764pt too wide) in paragraph at lines 441--452
+[][] 
+ []
+
+<wykresy/i1p1f_proc.png, id=84, 621.32124pt x 379.4175pt>
+File: wykresy/i1p1f_proc.png Graphic file (type png)
+
+<use wykresy/i1p1f_proc.png>
+Overfull \hbox (43.29764pt too wide) in paragraph at lines 460--471
+[][] 
+ []
+
+<wykresy/i1p1f_lacza.png, id=85, 621.32124pt x 379.4175pt>
+File: wykresy/i1p1f_lacza.png Graphic file (type png)
+
+<use wykresy/i1p1f_lacza.png>
+Overfull \hbox (41.77814pt too wide) in paragraph at lines 480--492
+[][] 
+ []
+
+[17] [18 <./wykresy/i1p1f_proc.png (PNG copy)>] [19 <./wykresy/i1p1f_lacza.png 
+(PNG copy)>] <wykresy/i2p1f_proc.png, id=98, 621.32124pt x 379.4175pt>
+File: wykresy/i2p1f_proc.png Graphic file (type png)
+
+<use wykresy/i2p1f_proc.png>
+Overfull \hbox (41.77814pt too wide) in paragraph at lines 500--512
+[][] 
+ []
+
+<wykresy/i2p1f_lacza.png, id=99, 621.32124pt x 379.4175pt>
+File: wykresy/i2p1f_lacza.png Graphic file (type png)
+
+<use wykresy/i2p1f_lacza.png> [20] [21 <./wykresy/i2p1f_proc.png (PNG copy)> <.
+/wykresy/i2p1f_lacza.png (PNG copy)>] [22] (./pr.aux) ) 
 Here is how much of TeX's memory you used:
- 1396 strings out of 95057
- 17197 string characters out of 1182779
- 65446 words of memory out of 1500000
- 4566 multiletter control sequences out of 10000+50000
+ 1424 strings out of 95057
+ 17767 string characters out of 1182779
+ 70522 words of memory out of 1500000
+ 4590 multiletter control sequences out of 10000+50000
  11804 words of font info for 35 fonts, out of 1200000 for 2000
  48 hyphenation exceptions out of 8191
  25i,9n,24p,1094b,270s stack positions out of 5000i,500n,6000p,200000b,5000s
-{/usr/share/te
-xmf-texlive/fonts/enc/dvips/pl/plms.enc}{/usr/share/texmf-texlive/fonts/enc/dvi
-ps/pl/plrm.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/pl/plmi.enc}</usr/shar
-e/texmf-texlive/fonts/type1/bluesky/cm/cmbsy10.pfb></usr/share/texmf-texlive/fo
-nts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/pl
-/plbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plbx12.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/pl/plmi10.pfb></usr/share/texmf-texlive/fo
-nts/type1/public/pl/plr10.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/p
-lr12.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plr17.pfb></usr/share/
-texmf-texlive/fonts/type1/public/pl/plsy10.pfb>
-Output written on pr.pdf (18 pages, 240884 bytes).
+{/usr/share/texmf-texliv
+e/fonts/enc/dvips/pl/plms.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/pl/plrm
+.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/pl/plmi.enc}</usr/share/texmf-te
+xlive/fonts/type1/bluesky/cm/cmbsy10.pfb></usr/share/texmf-texlive/fonts/type1/
+bluesky/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plbx10.pf
+b></usr/share/texmf-texlive/fonts/type1/public/pl/plbx12.pfb></usr/share/texmf-
+texlive/fonts/type1/public/pl/plmi10.pfb></usr/share/texmf-texlive/fonts/type1/
+public/pl/plr10.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plr12.pfb><
+/usr/share/texmf-texlive/fonts/type1/public/pl/plr17.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/pl/plsy10.pfb>
+Output written on pr.pdf (23 pages, 262619 bytes).
 PDF statistics:
- 119 PDF objects out of 1000 (max. 8388607)
+ 143 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

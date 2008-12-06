@@ -420,18 +420,101 @@ Rozwiązanie problemu programowania liniowego dla tego wariantu:(tabelka!!!)
 \section{Opis implementacji modeli}
 Zaimplementowano programy realizujące modele 1f1p oraz 1f2p w wersjach uwzględniających architekturę zarówno dla maksymalizacji liczby szybkich procesorów jak i maksymalizacji liczby szybkich łączy - patrz opis zadania. Dla każdego transputera użytego w danej implementacji stworzono dwa procesy: obliczeniowy i pomiarowo-komunikacyjny. Proces obliczeniowy uruchamiano z priorytetem niskim. Natomiast proces pomiarowo-komunikacyjny z priorytetem wysokim.
 
-Pierwszą fazą działania programów była synchronizacja porcesów.
+Pierwszą fazą działania programów była synchronizacja porcesów. Po dokonaniu synchronizacji na każdym z transputerów, począwszy od najbardziej zewnętrznych, odczytywano aktualną wartość zegara, następnie przesyłano komunikat w kierunku środka łańcucha. Każdy następny transputer odbierając ten komunikat pobierał aktualną wartość TimeProc(). Pomierzone w ten sposób czasy uznano za początek przetwarzania. Jako, że najpierw mierzono czas na najbardziej zewnętrznych transputerach, należy mieć na uwadze, że uzyskane na nich względne punkty pomiarowe (liczone od rozpoczęcia przetwarzania) są nieco większe od faktycznych. Różnica ta jest niewielka w stosunku do długości operacji na danych.
 
 \subsection{Model 1f1p}
-W modelu tym mierzono trzy momenty czasowe dla każdego z transputerów. Mierzono czas bezpośrednio przed i po wyslaniu danych do kolejnego transputera
+W modelu tym mierzono trzy momenty czasowe dla każdego z transputerów: bezpośrednio przed i po wyslaniu danych do kolejnego transputera oraz po otrzymaniu informacji o zakończeniu obliczeń. Do rozsyłania danych z centralnego transputera użyto dwóch procesów o wysokim priorytecie realizujących zadanie równocześnie. Obliczenia wykonywano na procesach o niskim priorytecie, co gwarantowało, że będą one uruchamiane w czasie wysyłania danych, nie blokując jednocześnie inicjalizacji tego wysyłania. Gdy proces komunikacyjny otrzymał dane, wysyłał informację synchronizującą do procesu obliczeniowego, informując o możliwości rozpoczęcia obliczeń. Następnie proces o wysokim priorytecie inicjował przesyłanie danych na kolejny transputer. Po zakończeniu przetwarzania proces o niskim priorytecie wysyłał komunikat do procesu o wysokim priorytecie, na którym mierzony był czas zakończenia obliczeń. Dopiero po ustaleniu wszystkich potrzebnych czasów dane przesyłane były do procesu wejścia-wyjścia.
 \subsection{Model 2f1p}
-\section{Opis wyników testów implementacji dla wybranych modeli}
+W tym  przypadku wyznaczano czasy:
+\begin{itemize}
+\item zakończenia odbierania pierwszej porcji danych (początku obliczeń)
+\item zakończenia odbierania drugiej porcji danych (początku przesyłania danych na kolejny transputer)
+\item zakończenia przesyłania pierwszej porcji danych
+\item zakończenia przesyłania drugiej porcji danych
+\item zakończenia obliczeń na transputerze
+\end{itemize}
+Struktura i zadania procesów pozostały niezmienione w stosunku do implementacj modelu 1f1p. Po otrzymaniu pierwszej porcji danych proces komunikacyjny wysyłał komunikat do procesu obliczeniowego o możliwości rozpoczęcia obliczeń, po czym odbierał drugą porcję danych, przekazując ją w dwóch porcjach do następnego transputera. Pomiar czasu zakończenia obliczeń odbywał się w sposób opisany dla modelu 1f1p.
+\section{Wyniki testów implementacji dla wybranych modeli}
 \subsection{Model 1f1p}
 \subsubsection{Maksymalizacja liczby szybkich procesorów}
+\begin{table}[hp!]
+\begin{tabular}{|l|l|l|l|}\hline
+transputer & poczatek przesyłania(obliczeń) & koniec przesylania & koniec obliczeń\\ \hline
+1 & 0 & 10282 & 29568\\ \hline
+1 & 0 & 9865  & \\ \hline
+2 & 9887 & 13558 & 29189\\ \hline
+3 & 13582 & 14202 & 29103\\ \hline
+4 & 14224 & & 29157\\ \hline
+5 & 10314 & 12370 & 29384\\ \hline
+6 & 12392 & 13069 & 29448\\	\hline
+7 & 13091 & & 29410\\ \hline
+\end{tabular}
+\caption{Wyniki pomiarów dla modelu 1f1p z maksymalizacją szybkich transputerów \label{i1f1p_p}}
+\end{table}
+\begin{figure}[hp!]
+\includegraphics[width=1.0\textwidth]{wykresy/i1p1f_proc}
+\caption{Diagram Gantta dla pomiarów 1f1p z maksymalizacją szybkich transputerów \label{i1p1f_pg}}
+\end{figure}
 \subsubsection{Maksymalizacja liczby szybkich łączy}
+\begin{table}[hp!]
+\begin{tabular}{|l|l|l|l|}\hline
+transputer & poczatek przesyłania(obliczeń) & koniec przesylania & koniec obliczeń\\ \hline
+1&0&10234&29434\\ \hline
+1&0&10003&\\ \hline
+2&10026&12075&29002\\ \hline
+3&12098&12773&29071\\ \hline
+4&12794&&29056\\ \hline
+5&10265&12312&29243\\ \hline
+6&12334&13010&29308\\ \hline
+7&13031&&29294\\ \hline
+\end{tabular}
+\caption{Wyniki pomiarów dla modelu 1f1p z maksymalizacją szybkich łączy \label{i1f1p_l}}
+\end{table}
+\begin{figure}[hp!]
+\includegraphics[width=1.0\textwidth]{wykresy/i1p1f_lacza}
+\caption{Diagram Gantta dla pomiarów 1f1p z maksymalizacją szybkich łączy \label{i1p1f_lg}}
+\end{figure}
 \subsection{Model 1f2p}
 \subsubsection{Maksymalizacja liczby szybkich procesorów}
+\begin{table}[h!]
+\begin{tabular}{|l|l|l|l|l|l|}\hline
+Transputer&Odebranie&Odbieranie&Wysyłanie&Wysyłanie&Koniec obliczeń\\
+&1. paczki&2. paczki&1. paczki&2. paczki&\\ \hline
+1&0&0&7031&10395&28673\\ \hline
+1&0&0&6873&10405&10405\\ \hline
+2&6896&10421&12890&13969&28350\\ \hline
+3&12913&13985&14553&14553&28207\\ \hline
+4&14575&14575&14575&14575&28236\\ \hline
+5&7061&10418&11781&12163&28468\\ \hline
+6&11804&12178&12553&12553&28490\\ \hline
+7&12576&12576&12576&12576&21478\\ \hline
+\end{tabular}
+\caption{Wyniki pomiarów dla modelu 1f2p z maksymalizacją szybkich transputerów \label{i2f1p_p}}
+\end{table}
+\begin{figure}[hp!]
+\includegraphics[width=1.0\textwidth]{wykresy/i2p1f_proc}
+\caption{Diagram Gantta dla pomiarów 1f2p z maksymalizacją szybkich transputerów \label{i2p1f_pg}}
+\end{figure}
 \subsubsection{Maksymalizacja liczby szybkich łączy}
+\begin{table}[hp!]
+\begin{tabular}{|l|l|l|l|l|l|}\hline
+Transputer&Odebranie&Odbieranie&Wysyłanie&Wysyłanie&Koniec obliczeń\\
+&1. paczki&2. paczki&1. paczki&2. paczki&\\ \hline
+1&0&0&7000&10351&28545\\ \hline
+1&0&0&6842&10529&10529\\ \hline
+2&6866&10546&11873&12499&28202\\ \hline
+3&11895&12514&13134&13134&28153\\ \hline
+4&13158&13158&13158&13158&28091\\ \hline
+5&7031&10375&11733&12113&28348\\ \hline
+6&11755&12127&12500&12500&28388\\ \hline
+7&12523&12523&12523&12523&21371\\ \hline
+\end{tabular}
+\caption{Wyniki pomiarów dla modelu 1f2p z maksymalizacją szybkich łączy \label{i2f1p_l}}
+\end{table}
+\begin{figure}[hp!]
+\includegraphics[width=1.0\textwidth]{wykresy/i2p1f_lacza}
+\caption{Diagram Gantta dla pomiarów 1f2p z maksymalizacją szybkich łączy \label{i2p1f_lg}}
+\end{figure}
 \section{Porównanie wyników implementacji z wynikami uzyskanymi dla modelu teoretycznego}
 \section{Wnioski}
 \end{document}
